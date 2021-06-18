@@ -1,7 +1,5 @@
 pipline {
-    agent {
-        docker { image 'node:14-alpane'}
-    }
+    agent { docker { image 'node:14-alpane'} }
     stages {
         stage('Test') {
             steps {
