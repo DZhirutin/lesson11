@@ -27,11 +27,9 @@ pipeline {
         }
         stage('Run docker on Prod') {
             steps {
-                script {
-                    sshagent(['ec2-user-key']) {
+                   sshagent(['ec2-user-key']) {
                          sh 'ssh -o StrictHostKeyChecking=no ec2-user@3.128.181.11 '
-                    }
-                } 
+                    } 
             }
         }
     }
