@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'dzhirutin/my-repo:build-1.0' } }
+    agent { docker { image 'dzhirutin/my-repo:build-1.0' args '-v /etc/passwd:/etc/passwd'} }
      
     stages {
         stage ('Repo git') {
