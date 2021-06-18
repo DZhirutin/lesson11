@@ -29,7 +29,7 @@ pipeline {
             steps {
                    sshagent(['ec2-user-key']) {
                          sh 'ssh -o StrictHostKeyChecking=no ec2-user@3.128.181.11 uname -a'
-                    } 
+                 } 
             }
         }
     }
