@@ -28,9 +28,8 @@ pipeline {
         stage('Run docker on Prod') {
             steps {
                 script {
-                    def dockerCmd = 'docker run -d -p 8083:8080 dzhirutin/my-repo:prod-1.0'
                     sshagent(['ec2-user-key']) {
-                         sh "ssh -o StrictHostKeyChecking=no ec2-user@3.128.181.11 ${dockerCmd}"
+                         sh "ssh -o StrictHostKeyChecking=no ec2-user@3.128.181.11 ls -la /"
                     }
                 } 
             }
