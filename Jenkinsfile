@@ -16,7 +16,7 @@ pipeline {
         stage('Make docker image') {
             steps {
                 echo "Docker image make...."
-                sh docker build -t dzhirutin/my-repo:prod-1.0 .
+                sh 'docker build -t dzhirutin/my-repo:prod-1.0 .'
             }
         }
         stage('Run docker image') {
