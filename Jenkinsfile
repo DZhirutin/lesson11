@@ -25,10 +25,17 @@ pipeline {
                 sh 'docker push dzhirutin/my-repo:prod-1.0'
             }
         }
+        stage('copy passwd') {
+            steps{
+                step([$class: 'WsCleanup'])
+                docker.image('node').inside('-v /etc/passwd:/etc/passwd')
+            }
+        }
+
         stage('Run docker on Prod') {
             steps {
                    sshagent(['ec2-user-key']) {
-                         sh 'ssh -o StrictHostKeyChecking=no ec2-user@3.128.181.11 '
+                         sh 'ssh -o StrictHostKeyChecking=no ec2-user@3.128.181.11 uname -a'
                     } 
             }
         }
