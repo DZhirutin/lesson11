@@ -2,12 +2,12 @@ pipeline {
     agent { docker { image 'dzhirutin/my-repo:build-1.0' } }
      
     stages {
-        stage ('git') {
+        stage ('Repo git') {
             steps {
                 git 'https://github.com/DZhirutin/lesson11.git'
             }
         }
-        stage('build WAR') {
+        stage('Build WAR') {
             steps {
                 sh 'mvn --version'
                 sh 'mvn package'
@@ -25,9 +25,9 @@ pipeline {
                 sh 'docker push dzhirutin/my-repo:prod-1.0'
             }
         }
-        stage('Run docker image') {
+        stage('Run docker on Prod') {
             steps {
-                echo "Run docker image...."
+                echo "Run docker on Prod...."
             }
         }
         
