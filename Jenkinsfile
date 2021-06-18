@@ -22,7 +22,7 @@ pipeline {
         stage('Push docker image') {
             steps {
                 echo "Push docker image..."
-                sh 'docker push dzhirutin/my-repo:prod-1.0 .'
+                sh 'docker push dzhirutin/my-repo:prod-1.0'
             }
         }
         stage('Run docker image') {
