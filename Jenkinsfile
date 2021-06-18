@@ -1,11 +1,28 @@
 pipeline {
-    agent { docker { image 'node:14-alpine' } }
+    agent { docker { image 'dzhirutin/my-repo:build-1.0' } }
+     
     stages {
-        stage('build') {
+        stage ('git') {
             steps {
-                echo "Version node"
-                sh 'npm --version'
+                git 'https://github.com/DZhirutin/lesson11.git'
             }
         }
+        stage('build') {
+            steps {
+                sh 'mvn --version'
+                sh 'mvn package'
+            }
+        }
+        stage('Make docker image') {
+            steps {
+                echo "Docker image make...."
+            }
+        }
+        stage('Run docker image') {
+            steps {
+                echo "Run docker image...."
+            }
+        }
+        
     }
 }
