@@ -1,6 +1,8 @@
 pipeline {
     agent { 
-        docker { 
+        dockerfile {
+            additionalBuildArgs "--build-arg jenkinsUserId=\$(id -u jenkins)"
+        /*docker { 
             image 'dzhirutin/my-repo:build-1.0' 
             /*args '-v /etc/passwd:/etc/passwd'*/
             } 
