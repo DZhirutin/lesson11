@@ -36,9 +36,9 @@ pipeline {
             steps {
                 script {
                     def dockerCmd = 'docker run -d -p 8083:8080 dzhirutin/my-repo:prod-1.0'
+                    def dockerkill = 'docker rm -f $(docker ps -a -q)'
                     sshagent(['ec2-user-key']) {
-                         /*sh 'docker kill $(docker ps -q)'
-                         sh 'docker rm $(docker ps -a -q)'*/
+                         sh "ssh -o StrictHostKeyChecking=no ec2-user@3.128.181.11 ${dockerkill}"
                          sh "ssh -o StrictHostKeyChecking=no ec2-user@3.128.181.11 ${dockerCmd}"
                     }
                  } 
