@@ -2,7 +2,7 @@ pipeline {
     agent { 
         docker { 
             image 'dzhirutin/my-repo:build-1.0' 
-            args '-v /etc/passwd:/etc/passwd'
+            /*args '-v /etc/passwd:/etc/passwd'*/
             } 
         }
      
@@ -21,7 +21,7 @@ pipeline {
         stage('Make docker image') {
             steps {
                 echo "Docker image make..."
-                sh 'docker build -t dzhirutin/my-repo:prod-1.0 .'
+                sh 'docker build -t dzhirutin/my-repo:prod-1.0 -f Dockerfileprod .'
             }
         }
         stage('Push docker image') {
