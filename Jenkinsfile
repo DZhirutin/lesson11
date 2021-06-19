@@ -37,7 +37,7 @@ pipeline {
                 script {
                     def dockerCmd = 'docker run -d -p 8083:8080 dzhirutin/my-repo:prod-1.0'
                        sshagent(['ec2-user-key']) {
-                         sh "ssh -o StrictHostKeyChecking=no ec2-user@3.128.181.11 docker rm -f $(docker ps -a -q)"
+                         sh 'ssh -o StrictHostKeyChecking=no ec2-user@3.128.181.11 docker rm -f $(docker ps -a -q)'
                          sh "ssh -o StrictHostKeyChecking=no ec2-user@3.128.181.11 ${dockerCmd}"
                     }
                  } 
