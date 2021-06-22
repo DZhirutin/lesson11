@@ -35,7 +35,7 @@ pipeline {
         stage('Run docker on Prod') {
             steps {
                 script {
-                     def dockerComposeCmd = "docker-compose -f docker-compose.yaml up --detach"
+                     def dockerComposeCmd = "docker-compose -f docker-compose.yaml up"
                     /*def dockerCmd = 'docker run -d -p 8083:8080 dzhirutin/my-repo:prod-1.0'*/
                      sshagent(['ec2-user-key']) {
                        sh "scp docker-compose.yaml ec2-user@18.118.247.199:/home/ec2-user"
