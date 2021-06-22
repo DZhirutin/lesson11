@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+    java-maven-app:
+      image: dzhirutin/my-repo:prod-1.0
+      ports:
+        - 8083:8080
