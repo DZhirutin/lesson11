@@ -7,8 +7,8 @@ pipeline {
             args '-u root:root'
             } 
             environment {
-        IMAGE_NAME = 'dzhirutin/my-repo:prod-1.0'
-    }
+                IMAGE_NAME = 'dzhirutin/my-repo:prod-1.0'
+            }
 
         }
      
