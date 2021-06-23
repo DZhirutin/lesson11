@@ -6,10 +6,9 @@ pipeline {
             image 'dzhirutin/my-repo:build-1.0' 
             args '-u root:root'
             } 
-            environment {
-                IMAGE_NAME = 'dzhirutin/my-repo:prod-1.0'
-            }
-
+        }
+    environment {
+        IMAGE_NAME = 'dzhirutin/my-repo:prod-1.0'
         }
      
     stages {
