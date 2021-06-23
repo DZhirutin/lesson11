@@ -8,7 +8,7 @@ pipeline {
             } 
         }
     environment {
-        IMAGE_NAME = 'dzhirutin/my-repo:prod-2.0'
+        IMAGE_NAME = 'dzhirutin/my-repo:prod-1.0'
         }
      
     stages {
