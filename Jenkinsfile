@@ -8,7 +8,7 @@ pipeline {
             } 
         }
     environment {
-        IMAGE_NAME = 'dzhirutin/my-repo:prod-1.0'
+        IMAGE_NAME = 'dzhirutin/my-repo:prod-2.0'
         }
      
     stages {
@@ -38,7 +38,7 @@ pipeline {
         stage('Run docker on Prod') {
             steps {
                 script {
-                      def shellCmd = "bash ./server-cmds.sh"
+                      def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME}"
                       def ec2Instance = "ec2-user@18.118.247.199"
                     /*def dockerComposeCmd = "docker-compose -f docker-compose.yaml up --detach"*/
                     /*def dockerCmd = 'docker run -d -p 8083:8080 dzhirutin/my-repo:prod-1.0'*/
