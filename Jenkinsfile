@@ -38,7 +38,7 @@ pipeline {
                      def dockerComposeCmd = "docker-compose -f docker-compose.yaml up --detach"
                     /*def dockerCmd = 'docker run -d -p 8083:8080 dzhirutin/my-repo:prod-1.0'*/
                      sshagent(['ec2-user-key']) {
-                       sh "rsync -avz docker-compose.yaml ec2-user@18.118.247.199:/home/ec2-user"
+                       sh "scp -v -o StrictHostKeyChecking=no docker-compose.yaml ec2-user@18.118.247.199:/home/ec2-user"
                        sh "ssh -o StrictHostKeyChecking=no ec2-user@18.118.247.199 ${dockerComposeCmd}"
                     }
                  } 
